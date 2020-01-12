@@ -41,12 +41,15 @@ namespace AirSimUnity {
                 transform.position = position;
                 transform.rotation = rotation;
 
+                var rs = " rs";
                 for (int i = 0; i < rotors.Length; i++)
                 {
                     float rotorSpeed = (float) (rotorInfos[i].rotorSpeed * rotorInfos[i].rotorDirection * 180 /
                                                 Math.PI * rotationFactor);
                     rotors[i].Rotate(Vector3.up, rotorSpeed * Time.deltaTime, Space.Self);
+                    rs += $"  {rotorSpeed}";
                 }
+                Debug.Log($"t:{Time.time} pos:{position}"+rs);
             }
         }
 
