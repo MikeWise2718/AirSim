@@ -96,6 +96,11 @@ public class InitializeAirSim : MonoBehaviour
         if (load_name == "Car")
         {
             AirSimSettings.GetSettings().SimMode = "Car";
+            SceneManager.LoadSceneAsync("Scenes/MapDemo", LoadSceneMode.Single);
+        }
+        else if (load_name == "Map")
+        {
+            AirSimSettings.GetSettings().SimMode = "Car";
             SceneManager.LoadSceneAsync("Scenes/CarDemo", LoadSceneMode.Single);
         }
         else if (load_name == "Multirotor")

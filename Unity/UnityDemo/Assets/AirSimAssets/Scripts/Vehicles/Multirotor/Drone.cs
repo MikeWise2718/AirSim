@@ -24,6 +24,7 @@ namespace AirSimUnity {
         }
 
         private new void FixedUpdate() {
+            Debug.Log($"Drone fixed update {Time.time}");
             if (isServerStarted)
             {
                 if (resetVehicle)
@@ -49,7 +50,7 @@ namespace AirSimUnity {
                     rotors[i].Rotate(Vector3.up, rotorSpeed * Time.deltaTime, Space.Self);
                     rs += $"  {rotorSpeed}";
                 }
-                Debug.Log($"t:{Time.time} pos:{position}"+rs);
+ //               Debug.Log($"t:{Time.time} pos:{position}"+rs);
             }
         }
 

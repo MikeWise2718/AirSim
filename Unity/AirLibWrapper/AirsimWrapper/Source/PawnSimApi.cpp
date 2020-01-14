@@ -103,6 +103,7 @@ std::vector<uint8_t> PawnSimApi::getImage(const std::string& camera_name, ImageC
 msr::airlib::RCData PawnSimApi::getRCData() const
 {
 	AirSimRCData rcDataFromUnity = GetRCData(getVehicleName().c_str());
+    rc_data_.is_initialized = rcDataFromUnity.is_initialized;
 	rc_data_.is_valid = rcDataFromUnity.is_valid;
 
 	if (rc_data_.is_valid)

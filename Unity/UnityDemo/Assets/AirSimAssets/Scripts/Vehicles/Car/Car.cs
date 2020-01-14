@@ -26,9 +26,10 @@ namespace AirSimUnity
             carController = GetComponent<AirSimCarController>();
 
         }
-
+        private bool tryOutrcData = false;
         private new void FixedUpdate()
         {
+            Debug.Log($"Car fixed update {Time.time}");
             if (isServerStarted)
             {
                 if (resetVehicle)
@@ -68,13 +69,23 @@ namespace AirSimUnity
                         throttle = Input.GetAxis("Vertical");
                         handBrake = Input.GetAxis("Jump");
                         footBreak = throttle;
+                        Debug.Log($"Steering:{steering} throttle:{throttle} handbrake:{handBrake}");
                     }
-
-                    carController.Move(steering, throttle, footBreak, handBrake);
-                    carController.UpdateCarData(ref carData);
-                    carData.throttle = throttle;
-                    carData.brake = footBreak;
-                    carData.steering = steering;
+                    if (tryOutrcData)
+                    {
+                        rcData.is_initialized = true;
+                        rcData.is_valid = true;
+                        rcData.throttle = throttle * 100;
+                        rcData.yaw = steering * 100;
+                    }
+                    else
+                    {
+                        carController.Move(steering, throttle, footBreak, handBrake);
+                        carController.UpdateCarData(ref carData);
+                        carData.throttle = throttle;
+                        carData.brake = footBreak;
+                        carData.steering = steering;
+                    }
                 }
             }
         }

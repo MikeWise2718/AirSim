@@ -219,6 +219,7 @@ namespace AirSimUnity {
         }
 
         public AirSimRCData GetRCData() {
+            Debug.Log($"GetRCData called for {name} {Time.time} rc.is_inited:{rcData.is_initialized}  rc.is_valid:{rcData.is_valid}  throttle:{rcData.throttle}");
             return rcData;
         }
 
@@ -280,11 +281,11 @@ namespace AirSimUnity {
                 return true;
 
             if (severity == 2) {
-                Debug.LogError(message + " " + messageParams + " Vehicle=" + vehicleName);
+                Debug.LogError("AL:"+message + " " + messageParams + " Vehicle=" + vehicleName);
             } else if (severity == 1) {
-                Debug.LogWarning(message + " " + messageParams + " Vehicle=" + vehicleName);
+                Debug.LogWarning("AL:" + message + " " + messageParams + " Vehicle=" + vehicleName);
             } else {
-                Debug.Log(message + " " + messageParams + " Vehicle=" + vehicleName);
+                Debug.Log("AL:" + message + " " + messageParams + " Vehicle=" + vehicleName);
             }
             return true;
         }

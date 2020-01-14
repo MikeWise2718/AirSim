@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DroneDemo.unity
     guid: 012f6bdfaada17042bf7917f7d4fcbd8
+  - enabled: 1
+    path: Assets/Scenes/MapDemo.unity
+    guid: 3e79237651c534d4dbe740667feeea1c
   m_configObjects: {}
